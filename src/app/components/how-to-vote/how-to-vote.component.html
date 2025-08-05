@@ -1,0 +1,152 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-r from-red-600 to-blue-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold mb-6">How to Vote</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        Your voice matters! Learn how to register and cast your vote in upcoming
+        elections.
+      </p>
+    </div>
+  </div>
+
+  <!-- Registration Section -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-3xl font-bold text-gray-900 mb-6">
+          Voter Registration
+        </h2>
+        <div class="space-y-6">
+          <div
+            *ngFor="let step of registrationSteps"
+            class="flex items-start space-x-4"
+          >
+            <div
+              class="w-8 h-8 bg-red-600 text-white rounded-full flex items-center justify-center flex-shrink-0 mt-1"
+            >
+              {{ step.number }}
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                {{ step.title }}
+              </h3>
+              <p class="text-gray-600">{{ step.description }}</p>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8">
+          <button
+            class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+          >
+            Register to Vote
+          </button>
+        </div>
+      </div>
+      <div class="bg-white rounded-lg shadow-lg p-8">
+        <h3 class="text-2xl font-bold text-gray-900 mb-6">
+          Eligibility Requirements
+        </h3>
+        <ul class="space-y-4">
+          <li
+            *ngFor="let requirement of eligibilityRequirements"
+            class="flex items-start"
+          >
+            <svg
+              class="w-5 h-5 text-green-500 mr-3 mt-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"
+              ></path>
+            </svg>
+            <span class="text-gray-700">{{ requirement }}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Voting Methods -->
+  <div class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+        Voting Methods
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div
+          *ngFor="let method of votingMethods"
+          class="bg-gray-50 rounded-lg p-6"
+        >
+          <div
+            class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4"
+          >
+            <span class="text-2xl">{{ method.icon }}</span>
+          </div>
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">
+            {{ method.title }}
+          </h3>
+          <p class="text-gray-600 mb-4">{{ method.description }}</p>
+          <ul class="space-y-2">
+            <li
+              *ngFor="let detail of method.details"
+              class="text-sm text-gray-600 flex items-start"
+            >
+              <span class="text-blue-600 mr-2">•</span>
+              {{ detail }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Important Dates -->
+  <div class="bg-gray-50 py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+        Important Dates
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div
+          *ngFor="let date of importantDates"
+          class="bg-white rounded-lg shadow-md p-6 text-center"
+        >
+          <div class="text-2xl font-bold text-red-600 mb-2">
+            {{ date.date }}
+          </div>
+          <div class="text-gray-900 font-semibold mb-2">{{ date.title }}</div>
+          <div class="text-gray-600 text-sm">{{ date.description }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Resources -->
+  <div class="bg-white py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+        Additional Resources
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div
+          *ngFor="let resource of resources"
+          class="bg-gray-50 rounded-lg p-6"
+        >
+          <h3 class="text-xl font-semibold text-gray-900 mb-3">
+            {{ resource.title }}
+          </h3>
+          <p class="text-gray-600 mb-4">{{ resource.description }}</p>
+          <a href="#" class="text-blue-600 hover:text-blue-800 font-medium"
+            >Learn More →</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 
 interface ContactInfo {
   id: number;
@@ -22,6 +23,7 @@ interface SocialMedia {
 @Component({
   selector: 'app-contact',
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './contact.component.html',
 })
 export class ContactComponent {

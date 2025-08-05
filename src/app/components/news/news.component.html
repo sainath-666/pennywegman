@@ -1,0 +1,138 @@
+<div class="min-h-screen bg-gray-50">
+  <!-- Hero Section -->
+  <div class="bg-gradient-to-r from-purple-600 to-blue-700 text-white py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-5xl font-bold mb-6">Latest News</h1>
+      <p class="text-xl max-w-3xl mx-auto">
+        Stay informed with the latest updates, announcements, and stories from
+        PennyWegman.
+      </p>
+    </div>
+  </div>
+
+  <!-- Featured News -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4">Featured Stories</h2>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div
+          *ngFor="let article of featuredNews"
+          class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+        >
+          <div
+            class="h-48 bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center"
+          >
+            <span class="text-white text-4xl font-bold">{{
+              article.title.charAt(0)
+            }}</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-3">
+              <span
+                class="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                >{{ article.category }}</span
+              >
+              <span class="text-gray-500 text-sm">{{ article.date }}</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">
+              {{ article.title }}
+            </h3>
+            <p class="text-gray-600 mb-4">{{ article.excerpt }}</p>
+            <button class="text-purple-600 hover:text-purple-800 font-medium">
+              Read More →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest News Grid -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Latest Updates</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div
+          *ngFor="let article of latestNews"
+          class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div
+            class="h-32 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center"
+          >
+            <span class="text-white text-2xl font-bold">{{
+              article.title.charAt(0)
+            }}</span>
+          </div>
+          <div class="p-6">
+            <div class="flex items-center justify-between mb-2">
+              <span
+                class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded"
+                >{{ article.category }}</span
+              >
+              <span class="text-gray-500 text-sm">{{ article.date }}</span>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              {{ article.title }}
+            </h3>
+            <p class="text-gray-600 text-sm mb-4">{{ article.excerpt }}</p>
+            <button
+              class="text-blue-600 hover:text-blue-800 text-sm font-medium"
+            >
+              Read More →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Press Releases -->
+    <div class="mb-12">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8">Press Releases</h2>
+      <div class="space-y-6">
+        <div
+          *ngFor="let release of pressReleases"
+          class="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
+        >
+          <div class="flex items-start justify-between">
+            <div class="flex-1">
+              <div class="flex items-center mb-3">
+                <span
+                  class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded mr-3"
+                  >Press Release</span
+                >
+                <span class="text-gray-500 text-sm">{{ release.date }}</span>
+              </div>
+              <h3 class="text-xl font-semibold text-gray-900 mb-2">
+                {{ release.title }}
+              </h3>
+              <p class="text-gray-600 mb-4">{{ release.excerpt }}</p>
+              <button class="text-green-600 hover:text-green-800 font-medium">
+                Read Full Release →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter Signup -->
+    <div
+      class="bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg p-8 text-white text-center"
+    >
+      <h3 class="text-2xl font-bold mb-4">Stay Updated</h3>
+      <p class="text-purple-100 mb-6">
+        Subscribe to our newsletter for the latest news and updates.
+      </p>
+      <div class="max-w-md mx-auto flex space-x-4">
+        <input
+          type="email"
+          placeholder="Enter your email"
+          class="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:ring-2 focus:ring-white focus:outline-none"
+        />
+        <button
+          class="bg-white text-purple-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+        >
+          Subscribe
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

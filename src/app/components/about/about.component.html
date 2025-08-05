@@ -1,8 +1,13 @@
 <div class="min-h-screen bg-gray-50">
   <!-- Hero Section -->
-  <div class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
+  <div
+    class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20"
+    [@fadeInUp]
+  >
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl font-bold mb-6">About PennyWegman</h1>
+      <h1 class="text-5xl font-bold mb-6 animate-bounce-in">
+        About PennyWegman
+      </h1>
       <p class="text-xl max-w-3xl mx-auto">
         We are a passionate team of innovators dedicated to transforming
         businesses through cutting-edge technology solutions.
@@ -13,7 +18,7 @@
   <!-- Company Info -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-      <div>
+      <div [@slideInLeft]>
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Our Story</h2>
         <p class="text-gray-600 mb-6">
           Founded in 2020, PennyWegman started with a simple mission: to make
@@ -27,18 +32,23 @@
           understanding your unique business challenges and goals.
         </p>
         <div class="grid grid-cols-2 gap-6 mt-8">
-          <div class="text-center">
-            <div class="text-3xl font-bold text-blue-600">500+</div>
+          <div class="text-center card-hover">
+            <div class="text-3xl font-bold text-blue-600 animate-pulse-glow">
+              500+
+            </div>
             <div class="text-gray-600">Happy Clients</div>
           </div>
-          <div class="text-center">
-            <div class="text-3xl font-bold text-blue-600">50+</div>
+          <div class="text-center card-hover">
+            <div class="text-3xl font-bold text-blue-600 animate-pulse-glow">
+              50+
+            </div>
             <div class="text-gray-600">Team Members</div>
           </div>
         </div>
       </div>
       <div
-        class="bg-gradient-to-br from-blue-400 to-purple-500 h-96 rounded-lg flex items-center justify-center"
+        class="bg-gradient-to-br from-blue-400 to-purple-500 h-96 rounded-lg flex items-center justify-center animate-float"
+        [@slideInRight]
       >
         <span class="text-white text-6xl font-bold">PW</span>
       </div>
@@ -48,13 +58,16 @@
   <!-- Values Section -->
   <div class="bg-white py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+      <h2
+        class="text-3xl font-bold text-gray-900 text-center mb-12"
+        [@fadeInUp]
+      >
         Our Values
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="text-center">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" [@staggerAnimation]>
+        <div class="text-center card-hover" [@scaleIn]>
           <div
-            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-float"
           >
             <svg
               class="w-8 h-8 text-blue-600"
@@ -76,9 +89,9 @@
             customer service.
           </p>
         </div>
-        <div class="text-center">
+        <div class="text-center card-hover" [@scaleIn]>
           <div
-            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-float"
           >
             <svg
               class="w-8 h-8 text-green-600"
@@ -102,9 +115,9 @@
             clients.
           </p>
         </div>
-        <div class="text-center">
+        <div class="text-center card-hover" [@scaleIn]>
           <div
-            class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4 animate-float"
           >
             <svg
               class="w-8 h-8 text-purple-600"
@@ -133,16 +146,20 @@
   <!-- Team Section -->
   <div class="bg-gray-50 py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">
+      <h2
+        class="text-3xl font-bold text-gray-900 text-center mb-12"
+        [@fadeInUp]
+      >
         Our Leadership Team
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8" [@staggerAnimation]>
         <div
           *ngFor="let member of teamMembers"
-          class="bg-white rounded-lg shadow-md p-6 text-center"
+          class="bg-white rounded-lg shadow-md p-6 text-center card-hover"
+          [@bounceIn]
         >
           <div
-            class="w-24 h-24 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            class="w-24 h-24 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-float"
           >
             <span class="text-white text-2xl font-bold">{{
               member.name.charAt(0)

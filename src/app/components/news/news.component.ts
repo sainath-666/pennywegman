@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
+import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 
 interface NewsArticle {
   id: number;
@@ -19,8 +21,9 @@ interface PressRelease {
 @Component({
   selector: 'app-news',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './news.component.html',
+  animations: [fadeInUp, staggerFadeIn, cardHover],
 })
 export class NewsComponent {
   featuredNews: NewsArticle[] = [

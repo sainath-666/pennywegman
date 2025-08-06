@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
+import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 
 interface Event {
   id: number;
@@ -13,8 +15,9 @@ interface Event {
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './events.component.html',
+  animations: [fadeInUp, staggerFadeIn, cardHover],
 })
 export class EventsComponent {
   featuredEvents: Event[] = [

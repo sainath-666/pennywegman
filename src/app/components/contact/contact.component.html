@@ -2,8 +2,8 @@
   <!-- Hero Section -->
   <div class="bg-gradient-to-r from-blue-600 to-purple-700 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl font-bold mb-6">Contact Us</h1>
-      <p class="text-xl max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6" [@fadeInUp]>Contact Us</h1>
+      <p class="text-xl max-w-3xl mx-auto" [@fadeInUp]>
         Ready to start your next project? Get in touch with our team today.
       </p>
     </div>
@@ -12,7 +12,11 @@
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
       <!-- Contact Form -->
-      <div class="bg-white rounded-lg shadow-lg p-8">
+      <div
+        class="bg-white rounded-lg shadow-lg p-8"
+        scrollAnimation
+        animationClass="animate-slide-in-left"
+      >
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
         <form class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -103,7 +107,11 @@
       </div>
 
       <!-- Contact Information -->
-      <div class="space-y-8">
+      <div
+        class="space-y-8"
+        scrollAnimation
+        animationClass="animate-slide-in-right"
+      >
         <div>
           <h2 class="text-3xl font-bold text-gray-900 mb-6">Get in Touch</h2>
           <p class="text-gray-600 mb-8">
@@ -112,10 +120,10 @@
           </p>
         </div>
 
-        <div class="space-y-6">
+        <div class="space-y-6" [@staggerFadeIn]>
           <div
             *ngFor="let contact of contactInfo"
-            class="flex items-start space-x-4"
+            class="flex items-start space-x-4 hover:transform hover:scale-105 transition-all duration-300"
           >
             <div
               class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
@@ -132,7 +140,11 @@
         </div>
 
         <!-- Office Hours -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 card-hover"
+          scrollAnimation
+          [delay]="200"
+        >
           <h3 class="text-xl font-semibold text-gray-900 mb-4">Office Hours</h3>
           <div class="space-y-2">
             <div *ngFor="let hour of officeHours" class="flex justify-between">
@@ -143,13 +155,17 @@
         </div>
 
         <!-- Social Media -->
-        <div class="bg-white rounded-lg shadow-lg p-6">
+        <div
+          class="bg-white rounded-lg shadow-lg p-6 card-hover"
+          scrollAnimation
+          [delay]="400"
+        >
           <h3 class="text-xl font-semibold text-gray-900 mb-4">Follow Us</h3>
           <div class="flex space-x-4">
             <a
               *ngFor="let social of socialMedia"
               href="#"
-              class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+              class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-all duration-300 hover:scale-110 hover:-translate-y-1 social-icon"
             >
               <span class="text-lg">{{ social.icon }}</span>
             </a>

@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
+import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 
 interface ContactInfo {
   id: number;
@@ -23,8 +25,9 @@ interface SocialMedia {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './contact.component.html',
+  animations: [fadeInUp, staggerFadeIn, cardHover],
 })
 export class ContactComponent {
   contactInfo: ContactInfo[] = [

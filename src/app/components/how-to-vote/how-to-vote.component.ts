@@ -1,5 +1,12 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {
+  fadeInUp,
+  staggerFadeIn,
+  cardHover,
+  listAnimation,
+} from '../../shared/animations';
+import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 
 interface RegistrationStep {
   number: number;
@@ -28,8 +35,9 @@ interface Resource {
 @Component({
   selector: 'app-how-to-vote',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './how-to-vote.component.html',
+  animations: [fadeInUp, staggerFadeIn, cardHover, listAnimation],
 })
 export class HowToVoteComponent {
   registrationSteps: RegistrationStep[] = [

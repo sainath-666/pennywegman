@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
+import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 
 interface DonationOption {
   id: number;
@@ -16,8 +18,9 @@ interface ImpactStat {
 @Component({
   selector: 'app-donate',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollAnimationDirective],
   templateUrl: './donate.component.html',
+  animations: [fadeInUp, staggerFadeIn, cardHover],
 })
 export class DonateComponent {
   donationOptions: DonationOption[] = [

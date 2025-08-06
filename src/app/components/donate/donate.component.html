@@ -2,8 +2,8 @@
   <!-- Hero Section -->
   <div class="bg-gradient-to-r from-green-600 to-blue-700 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl font-bold mb-6">Support PennyWegman</h1>
-      <p class="text-xl max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6" [@fadeInUp]>Support PennyWegman</h1>
+      <p class="text-xl max-w-3xl mx-auto" [@fadeInUp]>
         Your contribution helps us continue our mission to serve the community
         and make a difference.
       </p>
@@ -12,17 +12,21 @@
 
   <!-- Donation Options -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="text-center mb-12">
+    <div
+      class="text-center mb-12"
+      scrollAnimation
+      animationClass="animate-fade-in-up"
+    >
       <h2 class="text-3xl font-bold text-gray-900 mb-4">
         Choose Your Donation Amount
       </h2>
       <p class="text-xl text-gray-600">Every dollar makes a difference</p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12" [@staggerFadeIn]>
       <div
         *ngFor="let option of donationOptions"
-        class="bg-white rounded-lg shadow-lg p-8 text-center hover:shadow-xl transition-shadow"
+        class="bg-white rounded-lg shadow-lg p-8 text-center card-hover"
       >
         <div
           class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6"
@@ -34,7 +38,7 @@
         </h3>
         <p class="text-gray-600 mb-6">{{ option.description }}</p>
         <button
-          class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium"
+          class="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-all duration-300 hover:scale-105 btn-animate font-medium"
         >
           Donate ${{ option.amount }}
         </button>
@@ -42,7 +46,12 @@
     </div>
 
     <!-- Custom Donation -->
-    <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto">
+    <div
+      class="bg-white rounded-lg shadow-lg p-8 max-w-2xl mx-auto"
+      scrollAnimation
+      animationClass="animate-slide-in-left"
+      [delay]="300"
+    >
       <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">
         Custom Donation Amount
       </h3>

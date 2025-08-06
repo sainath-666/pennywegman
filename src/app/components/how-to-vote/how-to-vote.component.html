@@ -2,8 +2,8 @@
   <!-- Hero Section -->
   <div class="bg-gradient-to-r from-red-600 to-blue-700 text-white py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h1 class="text-5xl font-bold mb-6">How to Vote</h1>
-      <p class="text-xl max-w-3xl mx-auto">
+      <h1 class="text-5xl font-bold mb-6" [@fadeInUp]>How to Vote</h1>
+      <p class="text-xl max-w-3xl mx-auto" [@fadeInUp]>
         Your voice matters! Learn how to register and cast your vote in upcoming
         elections.
       </p>
@@ -13,11 +13,11 @@
   <!-- Registration Section -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
+      <div scrollAnimation animationClass="animate-slide-in-left">
         <h2 class="text-3xl font-bold text-gray-900 mb-6">
           Voter Registration
         </h2>
-        <div class="space-y-6">
+        <div class="space-y-6" [@listAnimation]>
           <div
             *ngFor="let step of registrationSteps"
             class="flex items-start space-x-4"
@@ -37,13 +37,17 @@
         </div>
         <div class="mt-8">
           <button
-            class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-colors font-medium"
+            class="bg-red-600 text-white px-8 py-3 rounded-lg hover:bg-red-700 transition-all duration-300 hover:scale-105 btn-animate font-medium"
           >
             Register to Vote
           </button>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-lg p-8">
+      <div
+        class="bg-white rounded-lg shadow-lg p-8 card-hover"
+        scrollAnimation
+        animationClass="animate-slide-in-right"
+      >
         <h3 class="text-2xl font-bold text-gray-900 mb-6">
           Eligibility Requirements
         </h3>

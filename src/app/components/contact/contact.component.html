@@ -19,28 +19,17 @@
       >
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Send us a Message</h2>
         <form class="space-y-6">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2"
-                >First Name</label
-              >
-              <input
-                type="text"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="John"
-              />
-            </div>
-            <div>
-              <label class="block text-sm font-medium text-gray-700 mb-2"
-                >Last Name</label
-              >
-              <input
-                type="text"
-                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Doe"
-              />
-            </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-2"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              placeholder="John Doe"
+            />
           </div>
+
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2"
               >Email</label
@@ -60,32 +49,6 @@
               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               placeholder="+1 (555) 123-4567"
             />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Company</label
-            >
-            <input
-              type="text"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              placeholder="Your Company"
-            />
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-gray-700 mb-2"
-              >Service Interest</label
-            >
-            <select
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            >
-              <option>Select a service</option>
-              <option>Web Development</option>
-              <option>Mobile Development</option>
-              <option>Cloud Solutions</option>
-              <option>Data Analytics</option>
-              <option>Consulting</option>
-              <option>Other</option>
-            </select>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-2"
@@ -128,28 +91,24 @@
             <div
               class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0"
             >
-              <span class="text-2xl">{{ contact.icon }}</span>
+              <fa-icon
+                [icon]="
+                  contact.icon === 'envelope'
+                    ? faEnvelope
+                    : contact.icon === 'phone'
+                    ? faPhone
+                    : contact.icon === 'location-dot'
+                    ? faLocationDot
+                    : faInfoCircle
+                "
+                class="text-2xl text-blue-600"
+              ></fa-icon>
             </div>
             <div>
               <h3 class="text-lg font-semibold text-gray-900 mb-1">
                 {{ contact.title }}
               </h3>
               <p class="text-gray-600">{{ contact.value }}</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Office Hours -->
-        <div
-          class="bg-white rounded-lg shadow-lg p-6 card-hover"
-          scrollAnimation
-          [delay]="200"
-        >
-          <h3 class="text-xl font-semibold text-gray-900 mb-4">Office Hours</h3>
-          <div class="space-y-2">
-            <div *ngFor="let hour of officeHours" class="flex justify-between">
-              <span class="text-gray-600">{{ hour.day }}</span>
-              <span class="text-gray-900 font-medium">{{ hour.time }}</span>
             </div>
           </div>
         </div>
@@ -167,7 +126,18 @@
               href="#"
               class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-all duration-300 hover:scale-110 hover:-translate-y-1 social-icon"
             >
-              <span class="text-lg">{{ social.icon }}</span>
+              <fa-icon
+                [icon]="
+                  social.icon === 'facebook'
+                    ? faFacebook
+                    : social.icon === 'twitter'
+                    ? faTwitter
+                    : social.icon === 'linkedin'
+                    ? faLinkedin
+                    : faInstagram
+                "
+                class="text-lg"
+              ></fa-icon>
             </a>
           </div>
         </div>

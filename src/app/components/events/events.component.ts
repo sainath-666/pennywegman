@@ -66,33 +66,6 @@ export class EventsComponent {
       category: 'Education',
       date: 'November 8, 2024',
       location: 'Youth Center',
-    },
-    {
-      id: 6,
-      title: 'Holiday Food Drive',
-      description:
-        'Annual food drive to help families in need during the holidays.',
-      category: 'Community',
-      date: 'December 1, 2024',
-      location: 'Various Locations',
-    },
-    {
-      id: 7,
-      title: 'Volunteer Appreciation Dinner',
-      description:
-        'Annual dinner to thank our dedicated volunteers for their service.',
-      category: 'Recognition',
-      date: 'December 10, 2024',
-      location: 'Community Center',
-    },
-    {
-      id: 8,
-      title: 'New Year Planning Meeting',
-      description:
-        "Strategic planning meeting for the upcoming year's programs and initiatives.",
-      category: 'Planning',
-      date: 'January 15, 2025',
-      location: 'Office Conference Room',
-    },
+    }
   ];
 }

@@ -9,6 +9,7 @@ interface NewsArticle {
   excerpt: string;
   category: string;
   date: string;
+  imageUrl?: string;
 }
 
 interface PressRelease {
@@ -29,19 +30,23 @@ export class NewsComponent {
   featuredNews: NewsArticle[] = [
     {
       id: 1,
-      title: 'PennyWegman Announces New Community Initiative',
+      title: 'Daily Herald endorses Penny Wegman',
       excerpt:
-        'We are excited to launch our new community outreach program aimed at supporting local families and businesses.',
+        "In the race for Kane County Treasurer, Republican challenger Gretchen Butler is highlighting her 25 years of business experience with a promise to cut costs, while Democrat Penny Wegman, the current county auditor, is running on her record of increasing financial transparency and earning awards for her office's innovations.",
       category: 'Community',
       date: 'October 15, 2024',
+      imageUrl: '/assets/news1.png',
     },
     {
       id: 2,
-      title: 'Election Day Volunteers Needed',
+      title:
+        'Candidate for Kane County Treasurer Penny Wegman receives international award',
       excerpt:
-        'Join our team of dedicated volunteers to help ensure a smooth and accessible voting experience for all citizens.',
+        "Kane County Auditor Penny Wegman won an international award for overhauling the county's credit card (p-card) system. Her reforms secured better financial rebates and improved efficiency by implementing new software and switching vendors for the first time since 2007.",
       category: 'Volunteer',
       date: 'October 12, 2024',
+      imageUrl: '/assets/news2.png',
+
     },
   ];
 
@@ -70,30 +75,6 @@ export class NewsComponent {
       category: 'Education',
       date: 'October 5, 2024',
     },
-    {
-      id: 6,
-      title: 'Volunteer Recognition Event',
-      excerpt:
-        'Join us in celebrating our amazing volunteers who make our community programs possible.',
-      category: 'Events',
-      date: 'October 3, 2024',
-    },
-    {
-      id: 7,
-      title: 'Upcoming Town Hall Meeting',
-      excerpt:
-        'Mark your calendar for our monthly town hall meeting to discuss community issues and solutions.',
-      category: 'Events',
-      date: 'October 1, 2024',
-    },
-    {
-      id: 8,
-      title: 'Holiday Food Drive Launch',
-      excerpt:
-        'Our annual holiday food drive begins next week. Help us collect food for families in need.',
-      category: 'Community',
-      date: 'September 28, 2024',
-    },
   ];
 
   pressReleases: PressRelease[] = [
@@ -110,13 +91,6 @@ export class NewsComponent {
       excerpt:
         'PennyWegman applauds the recent passage of voting rights legislation that expands access to the ballot box for all eligible voters.',
       date: 'October 11, 2024',
-    },
-    {
-      id: 3,
-      title: 'New Executive Director Announced',
-      excerpt:
-        'We are pleased to announce the appointment of Michael Chen as our new Executive Director, effective November 1, 2024.',
-      date: 'October 7, 2024',
     },
   ];
 }

@@ -10,6 +10,7 @@ interface Event {
   category: string;
   date: string;
   location: string;
+  img?: string; // Optional image property
 }
 
 @Component({
@@ -23,12 +24,13 @@ export class EventsComponent {
   featuredEvents: Event[] = [
     {
       id: 1,
-      title: 'Community Town Hall Meeting',
+      title: 'Fundraiser for Kane County Circuit Clerk Theresa Barreiro and Treasurer Penny Wegman',
       description:
-        'Join us for our monthly town hall meeting to discuss community issues and upcoming initiatives.',
-      category: 'Community',
+        'Join us for a fundraiser for Kane County Circuit Clerk Theresa Barreiro and Treasurer Penny Wegman. The event is hosted by State Senator Cristina Castro.',
+      category: 'Fundraiser',
       date: 'October 25, 2024',
-      location: 'City Hall Auditorium',
+      location: 'Kane County',
+      img: 'assets/1.jpg'
     },
     {
       id: 2,
@@ -36,8 +38,9 @@ export class EventsComponent {
       description:
         'Training session for volunteers who will be helping at polling stations on Election Day.',
       category: 'Volunteer',
-      date: 'October 28, 2024',
-      location: 'Community Center',
+      date: 'August 24, 2023',
+      location: 'Martini Room, 161 E. Chicago Street, Elgin',
+      img: 'assets/2.jpg'
     },
   ];
 

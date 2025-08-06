@@ -19,12 +19,12 @@
           *ngFor="let event of featuredEvents"
           class="bg-white rounded-lg shadow-lg overflow-hidden card-hover"
         >
-          <div
-            class="h-48 bg-gradient-to-r from-orange-400 to-red-500 flex items-center justify-center"
-          >
-            <span class="text-white text-4xl font-bold">{{
-              event.title.charAt(0)
-            }}</span>
+          <div class="h-66 overflow-hidden">
+            <img
+              [src]="event.img"
+              [alt]="event.title"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
           </div>
           <div class="p-6">
             <div class="flex items-center justify-between mb-3">
@@ -92,7 +92,7 @@
             class="h-32 bg-gradient-to-r from-red-400 to-orange-500 flex items-center justify-center"
           >
             <span class="text-white text-2xl font-bold">{{
-              event.title.charAt(0)
+              event.category
             }}</span>
           </div>
           <div class="p-6">

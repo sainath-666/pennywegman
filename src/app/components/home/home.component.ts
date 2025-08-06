@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import {
   fadeInUp,
   staggerFadeIn,
@@ -14,4 +15,10 @@ import {
   templateUrl: './home.component.html',
   animations: [fadeInUp, staggerFadeIn, cardHover, sectionAnimation],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  constructor(private router: Router) {}
+
+  navigateToDonate() {
+    this.router.navigate(['/donate']);
+  }
+}

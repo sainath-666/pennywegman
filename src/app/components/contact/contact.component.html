@@ -142,13 +142,6 @@
             Send Message
           </button>
         </form>
-        <!-- Success/Error Feedback -->
-        <div *ngIf="successMessage" class="text-green-600 mt-4">
-          {{ successMessage }}
-        </div>
-        <div *ngIf="errorMessage" class="text-red-600 mt-4">
-          {{ errorMessage }}
-        </div>
       </div>
 
       <!-- Contact Information -->
@@ -226,4 +219,11 @@
       </div>
     </div>
   </div>
+  <!-- Modal Component -->
+  <app-modal
+    [isOpen]="isModalOpen"
+    [message]="modalMessage"
+    [type]="modalType"
+    (closeModal)="closeModal()"
+  ></app-modal>
 </div>

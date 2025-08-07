@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
+import { ModalComponent } from '../modal/modal.component';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -43,6 +44,7 @@ interface SocialMedia {
     HttpClientModule,
     ScrollAnimationDirective,
     FontAwesomeModule,
+    ModalComponent,
   ],
   providers: [ContactService],
   templateUrl: './contact.component.html',
@@ -121,22 +123,32 @@ export class ContactComponent {
     message: '',
   };
 
-  successMessage = '';
-  errorMessage = '';
+  isModalOpen = false;
+  modalMessage = '';
+  modalType: 'success' | 'error' = 'success';
 
   constructor(private contactService: ContactService) {}
 
   onSubmit() {
     this.contactService.submitContact(this.contactForm).subscribe({
       next: (res) => {
-        this.successMessage = res.message;
-        this.errorMessage = '';
+        this.showModal('success', res.message);
         this.contactForm = { fullName: '', email: '', phone: '', message: '' }; // reset form
       },
       error: (err) => {
-        this.errorMessage = err.error?.error || 'Submission failed.';
-        this.successMessage = '';
+        this.showModal('error', err.error?.error || 'Submission failed.');
       },
     });
+  }
+
+  showModal(type: 'success' | 'error', message: string) {
+    this.modalType = type;
+    this.modalMessage = message;
+    this.isModalOpen = true;
+  }
+
+  closeModal() {
+    this.isModalOpen = false;
+    this.modalMessage = '';
   }
 }

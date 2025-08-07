@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ContactService, ContactForm } from '../../services/contact';
+import { provideHttpClient } from '@angular/common/http';
 import {
   faEnvelope,
   faPhone,
@@ -33,7 +37,14 @@ interface SocialMedia {
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ScrollAnimationDirective, FontAwesomeModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    ScrollAnimationDirective,
+    FontAwesomeModule,
+  ],
+  providers: [ContactService],
   templateUrl: './contact.component.html',
   animations: [fadeInUp, staggerFadeIn, cardHover],
 })
@@ -101,4 +112,31 @@ export class ContactComponent {
       url: '#',
     },
   ];
+
+  // Form model
+  contactForm: ContactForm = {
+    fullName: '',
+    email: '',
+    phone: '',
+    message: '',
+  };
+
+  successMessage = '';
+  errorMessage = '';
+
+  constructor(private contactService: ContactService) {}
+
+  onSubmit() {
+    this.contactService.submitContact(this.contactForm).subscribe({
+      next: (res) => {
+        this.successMessage = res.message;
+        this.errorMessage = '';
+        this.contactForm = { fullName: '', email: '', phone: '', message: '' }; // reset form
+      },
+      error: (err) => {
+        this.errorMessage = err.error?.error || 'Submission failed.';
+        this.successMessage = '';
+      },
+    });
+  }
 }

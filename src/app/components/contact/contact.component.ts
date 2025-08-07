@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { fadeInUp, staggerFadeIn, cardHover } from '../../shared/animations';
 import { ScrollAnimationDirective } from '../../directives/scroll-animation.directive';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ContactService, ContactForm } from '../../services/contact';
 import { provideHttpClient } from '@angular/common/http';

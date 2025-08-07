@@ -27,9 +27,24 @@
               type="text"
               name="fullName"
               [(ngModel)]="contactForm.fullName"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+              #fullName="ngModel"
+              class="w-full px-4 py-3 border rounded-lg"
+              [class.border-red-500]="fullName.invalid && fullName.touched"
+              [class.border-gray-300]="!fullName.invalid || !fullName.touched"
               required
+              minlength="2"
             />
+            <div
+              *ngIf="fullName.invalid && fullName.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              <div *ngIf="fullName.errors?.['required']">
+                Full name is required
+              </div>
+              <div *ngIf="fullName.errors?.['minlength']">
+                Name must be at least 2 characters long
+              </div>
+            </div>
           </div>
 
           <div>
@@ -40,9 +55,22 @@
               type="email"
               name="email"
               [(ngModel)]="contactForm.email"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+              #email="ngModel"
+              class="w-full px-4 py-3 border rounded-lg"
+              [class.border-red-500]="email.invalid && email.touched"
+              [class.border-gray-300]="!email.invalid || !email.touched"
               required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
+            <div
+              *ngIf="email.invalid && email.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              <div *ngIf="email.errors?.['required']">Email is required</div>
+              <div *ngIf="email.errors?.['pattern']">
+                Please enter a valid email address
+              </div>
+            </div>
           </div>
 
           <div>
@@ -53,9 +81,24 @@
               type="tel"
               name="phone"
               [(ngModel)]="contactForm.phone"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+              #phone="ngModel"
+              class="w-full px-4 py-3 border rounded-lg"
+              [class.border-red-500]="phone.invalid && phone.touched"
+              [class.border-gray-300]="!phone.invalid || !phone.touched"
               required
+              pattern="^\+?[1-9]\d{1,14}$"
             />
+            <div
+              *ngIf="phone.invalid && phone.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              <div *ngIf="phone.errors?.['required']">
+                Phone number is required
+              </div>
+              <div *ngIf="phone.errors?.['pattern']">
+                Please enter a valid phone number
+              </div>
+            </div>
           </div>
 
           <div>
@@ -66,14 +109,35 @@
               rows="4"
               name="message"
               [(ngModel)]="contactForm.message"
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg"
+              #message="ngModel"
+              class="w-full px-4 py-3 border rounded-lg"
+              [class.border-red-500]="message.invalid && message.touched"
+              [class.border-gray-300]="!message.invalid || !message.touched"
               required
+              minlength="10"
             ></textarea>
+            <div
+              *ngIf="message.invalid && message.touched"
+              class="text-red-500 text-sm mt-1"
+            >
+              <div *ngIf="message.errors?.['required']">
+                Message is required
+              </div>
+              <div *ngIf="message.errors?.['minlength']">
+                Message must be at least 10 characters long
+              </div>
+            </div>
           </div>
 
           <button
             type="submit"
-            class="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+            [disabled]="form.invalid"
+            class="w-full py-3 px-6 rounded-lg font-medium transition-colors"
+            [class.bg-blue-600]="!form.invalid"
+            [class.hover:bg-blue-700]="!form.invalid"
+            [class.bg-gray-400]="form.invalid"
+            [class.cursor-not-allowed]="form.invalid"
+            [class.text-white]="true"
           >
             Send Message
           </button>

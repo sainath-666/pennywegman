@@ -18,13 +18,13 @@ import {
     >
       <!-- Backdrop -->
       <div
-        class="absolute inset-0 bg-black bg-opacity-10"
+        class="absolute inset-0 backdrop-blur-sm bg-black/30"
         (click)="close()"
       ></div>
 
       <!-- Modal -->
       <div
-        class="relative bg-white rounded-lg shadow-xl p-6 max-w-md w-full m-4 animate-modal-fade-in"
+        class="relative bg-white/80 backdrop-blur-md rounded-lg shadow-xl p-6 max-w-md w-full m-4 animate-modal-fade-in border border-white/20"
       >
         <!-- Close button -->
         <button
